@@ -1,155 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Explore Nepal</title>
-<style>
-  /* Reset and base styling */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  html, body {
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-    background: #222;
-  }
-  body {
-    background: url('https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100vw;
-    margin: 0;
-    position: relative;
-    color: #fff;
-    user-select: none;
-  }
-  /* semi-transparent overlay */
-  .overlay {
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background: rgba(0,0,0,0.4);
-    z-index: 1;
-  }
-  /* Container for content */
-  .content {
-    position: relative;
-    z-index: 2;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-    padding: 30px 20px;
-    border-radius: 14px;
-    background: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 25px rgba(0,0,0,0.7);
-  }
-  /* Logo container */
-  .logo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 50px;
-  }
-  .logo-icon {
-    width: 56px;
-    height: 56px;
-    fill: #ff6f61;
-    filter: drop-shadow(0 0 5px rgba(255,111,97,0.7));
-    animation: pulse 3s infinite alternate;
-  }
-  /* pulsing animation for icon */
-  @keyframes pulse {
-    0% { filter: drop-shadow(0 0 5px rgba(255,111,97,0.7)); }
-    100% { filter: drop-shadow(0 0 12px rgba(255,111,97,1)); }
-  }
-  .logo-text {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #ff6f61;
-    font-family: 'Georgia', serif;
-    text-shadow: 0 0 10px rgba(255,111,97,0.9);
-    letter-spacing: 2px;
-    user-select: none;
-  }
-  /* Button styling */
-  button {
-    background-color: #ff6f61;
-    border: none;
-    padding: 18px 44px;
-    border-radius: 30px;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 10px 18px rgba(255, 111, 97, 0.5);
-    user-select: none;
-    width: 100%;
-    max-width: 400px;
-  }
-  button:hover {
-    background-color: #ff4b3e;
-    transform: scale(1.07);
-  }
-  button:active {
-    transform: scale(0.95);
-  }
-  /* Responsive scaling for smaller widths */
-  @media (max-width: 480px) {
-    .logo-icon {
-      width: 44px;
-      height: 44px;
-    }
-    .logo-text {
-      font-size: 2.2rem;
-    }
-    button {
-      font-size: 1.3rem;
-      padding: 14px 36px;
-      max-width: 100%;
-    }
-    .content {
-      max-width: 320px;
-      padding: 20px 15px;
-      margin: 20px;
-      border-radius: 12px;
-    }
-  }
-  @media (max-width: 350px) {
-    .logo-text {
-      font-size: 1.8rem;
-      letter-spacing: 1.5px;
-    }
-    button {
-      font-size: 1.1rem;
-      padding: 12px 28px;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samachar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="overlay"></div>
-  <main class="content" role="main" aria-label="Explore Nepal">
-    <header class="logo" role="banner" aria-label="Explore Nepal Logo">
-      <!-- Mountain SVG Icon -->
-      <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" >
-        <path d="M2 54L32 6l30 48H2zM32 16L14 46h36L32 16z"/>
-      </svg>
-      <h1 class="logo-text">Explore Nepal</h1>
-    </header>
-    <a href="https://mailchi.mp/1ed80885d270/wildreaches">
-      <button type="button" aria-label="Find Out More About Nepal">Find Out More</button>
-    </a>
-  </main>
-</body>
-</html>
 
+    <nav>
+        <div class="main-nav container flex">
+            <a href="#" onclick="reload()" class="company-logo">
+                <img src="samachar.png" alt="company logo">
+            </a>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item" id="ipl" onclick="onNavItemClick('ipl')">IPL</li>
+                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+                </ul>
+            </div>
+            <div class="search-bar flex">
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
+                <button id="search-button" class="search-button">Search</button>
+            </div>
+        </div>
+    </nav>
+    
+
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+            
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html> 
